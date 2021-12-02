@@ -1,5 +1,7 @@
 
-void setup(){}
+void setup(){
+fullScreen();
+}
 
 void draw(){}
 
