@@ -1,9 +1,14 @@
+Game game;
 
-void setup(){
-fullScreen();
+void setup() {
+  fullScreen();
+
+  game = new Game();
 }
 
-void draw(){}
+void draw() {
+}
 
 
-void keyPressed(){}
+void keyPressed() {
+}

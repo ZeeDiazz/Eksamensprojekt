@@ -16,4 +16,7 @@ class Game {
       break;
     }
   }
+  boolean collisionDetect() {
+    return true;
+  }
 }
