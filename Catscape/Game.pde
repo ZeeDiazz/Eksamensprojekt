@@ -1,9 +1,14 @@
 class Game {
   int levelNr;
+  Cat cat = new Cat();
 
+  void setup() {
+  }
 
   void run() {
+    cat.run();
   }
+
   void levels() {
     switch(levelNr) {
     case 1:
