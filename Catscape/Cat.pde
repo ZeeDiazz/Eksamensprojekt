@@ -17,13 +17,13 @@ class Cat {
   }
 
   void update() {
-    switch () {
+    switch (cat) {
     }
   }
 
   void keyPressed() {
     //Movements
-    if (key = "a" || key = "A"){
+    if (key == 'a' || key == 'A'){
       a = true;
     }
     
