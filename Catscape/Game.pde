@@ -6,6 +6,7 @@ class Game {
   }
 
   void run() {
+    clear();
     cat.run();
   }
 
