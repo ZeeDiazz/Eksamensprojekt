@@ -1,2 +1,6 @@
 class Menu{
+  
+  void display(){
+  
+  }
 }
