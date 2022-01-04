@@ -4,8 +4,9 @@ class Button {
   String text;
   boolean boxdisplay, Pressed, Released;
   float c; // color
+  int nextPage = 0;
   
-  Button(float x_, float y_, float w_ , float h_, String text_, float textX_, float textY_, float textSize_, boolean boxdisplay_, float c_) {
+  Button(float x_, float y_, float w_ , float h_, String text_, float textX_, float textY_, float textSize_, boolean boxdisplay_, float c_, int nextPage_) {
     x = x_;
     y = y_;
     w = w_;
@@ -16,6 +17,7 @@ class Button {
     textSize = textSize_;
     boxdisplay = boxdisplay_;
     c = c_;
+    nextPage = nextPage_;
     
   }
   
