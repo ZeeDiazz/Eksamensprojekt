@@ -2,11 +2,14 @@ class Button {
 
   float x, y, w, h, textX, textY, textSize;
   String text;
-  boolean boxdisplay, Pressed, Released;
+  boolean Pressed = false;
+  boolean Released = true;
+  boolean boxdisplay = true;
   float c; // color
   int nextPage = 0;
+  int pageNum;
   
-  Button(float x_, float y_, float w_ , float h_, String text_, float textX_, float textY_, float textSize_, boolean boxdisplay_, float c_, int nextPage_) {
+  Button(float x_, float y_, float w_ , float h_, String text_, float textX_, float textY_, float textSize_, boolean boxdisplay_, float c_, int nextPage_, int pageNum_) {
     x = x_;
     y = y_;
     w = w_;
@@ -18,6 +21,7 @@ class Button {
     boxdisplay = boxdisplay_;
     c = c_;
     nextPage = nextPage_;
+    pageNum = pageNum_;
     
   }
   

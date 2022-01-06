@@ -1,15 +1,36 @@
 Game game;
+Menu menu;
+
+Boolean showMenu = true;
 
 void setup() {
   fullScreen();
-
+  menu = new Menu();
   game = new Game();
+  menu.setup();
 }
 
 void draw() {
-  game.run();
+  clear();
+  if (menu.Page == 0) {
+    showMenu = false;
+  }
+  if (showMenu) {
+    menu.display();
+  }
+  if (!showMenu) {
+    game.run();
+  }
 }
 
 
 void keyPressed() {
+}
+
+void mousePressed() {
+  menu.mouseReleased();
+}
+
+void mouseReleased() {
+  menu.mouseReleased();
 }
