@@ -15,10 +15,10 @@ void draw() {
   if (menu.Page == 0) {
     showMenu = false;
   }
-  if (showMenu) {
+  else if (showMenu) {
     menu.display();
   }
-  if (!showMenu) {
+  else if (!showMenu) {
     game.run();
   }
 }

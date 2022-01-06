@@ -5,7 +5,7 @@ class Menu {
   int Page = 1;
   int c = 0;
   void setup() {
-    buttonList.add(new Button(width/2-200, 500, 400, 60, "Play", 200, 20, 50, true, 255, 2, 1));
+    buttonList.add(new Button(width/2-200, 500, 400, 60, "Play", 200, 20, 50, true, 255, 0, 1));
     buttonList.add(new Button(width/2-200, 700, 400, 60, "Settings", 200, 20, 50, true, 255, 2, 1));
     buttonList.add(new Button(width/2-200, 500, 400, 60, "Sound", 200, 20, 50, true, 255, 4, 2));
   }
@@ -98,6 +98,7 @@ class Menu {
       b.Pressed = false;
       b.Released = true;
       if (b.mouseRegister()) {
+        println(b.text + " nextPage:" + b.nextPage );
         Page = b.nextPage;
       }
     }
