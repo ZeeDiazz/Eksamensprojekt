@@ -7,11 +7,13 @@ class Menu {
   int Page = 1;
   int c = 0;
   void setup() {
-    if(fpage){
+    if(fpage && spage == false){
     buttonList.add(new Button(width/2-200, 500, 400, 60, "Play", 200, 20, 50, true, 255, 0, 1));
     buttonList.add(new Button(width/2-200, 700, 400, 60, "Settings", 200, 20, 50, true, 255, 2, 1));
     }
-    buttonList.add(new Button(width/2-200, 500, 400, 60, "Sound", 200, 20, 50, true, 255, 3, 2));
+    //DOES NOT WORK 
+    else {
+    buttonList.add(new Button(width/2-200, 500, 400, 60, "Sound", 200, 20, 50, true, 255, 3, 2));}
   }
 
   void update() {
@@ -21,7 +23,6 @@ class Menu {
         changeCursor = true;
       }
     }
-
     if (changeCursor) {
       cursor(HAND);
     } else {
@@ -36,9 +37,13 @@ class Menu {
     switch(Page) {
     case 1:
       frontpage();
+      spage = false;
+      
       break;
     case 2:
       settingspage();
+      spage = true;
+      fpage= false;  
       break;
     case 3:
       soundpage();
@@ -62,7 +67,6 @@ class Menu {
 
 
   void settingspage() {   
-    fpage = false;
     fill(c);
     textSize(120);
     textAlign(CENTER, CENTER);
