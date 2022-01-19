@@ -1,13 +1,17 @@
 class Menu {
   ArrayList<Button> buttonList = new ArrayList<Button>();
   boolean changeCursor = false;
+  boolean spage = false;
+  boolean fpage = true; 
   //Page 0 = Game, Page 1 = frontpage, Page 2...
   int Page = 1;
   int c = 0;
   void setup() {
+    if(fpage){
     buttonList.add(new Button(width/2-200, 500, 400, 60, "Play", 200, 20, 50, true, 255, 0, 1));
     buttonList.add(new Button(width/2-200, 700, 400, 60, "Settings", 200, 20, 50, true, 255, 2, 1));
-    buttonList.add(new Button(width/2-200, 500, 400, 60, "Sound", 200, 20, 50, true, 255, 4, 2));
+    }
+    buttonList.add(new Button(width/2-200, 500, 400, 60, "Sound", 200, 20, 50, true, 255, 3, 2));
   }
 
   void update() {
@@ -56,21 +60,9 @@ class Menu {
     }
   }
 
-  void soundpage() {
-    fill(c);
-    textSize(120);
-    textAlign(CENTER, CENTER);
-    text("Sound", width/2, 250);
-    textAlign(CORNER, CORNER);
 
-    for (Button b : buttonList) {
-      if (b.pageNum == 4) {
-        b.display();
-      }
-    }
-  }
-
-  void settingspage() {
+  void settingspage() {   
+    fpage = false;
     fill(c);
     textSize(120);
     textAlign(CENTER, CENTER);
@@ -79,6 +71,20 @@ class Menu {
 
     for (Button b : buttonList) {
       if (b.pageNum == 2) {
+        b.display();
+      }
+    }
+  }
+
+  void soundpage() {
+    fill(c);
+    textSize(120);
+    textAlign(CENTER, CENTER);
+    text("Sound", width/2, 250);
+    textAlign(CORNER, CORNER);
+
+    for (Button b : buttonList) {
+      if (b.pageNum == 3) {
         b.display();
       }
     }
