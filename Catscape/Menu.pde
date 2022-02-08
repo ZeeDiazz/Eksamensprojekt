@@ -3,13 +3,13 @@ class Menu {
   boolean changeCursor = false;
   boolean spage = true, soundpage =true;
   boolean fpage = true; 
+  boolean MenuPage = true;
+  Button button = new Button(20, 1020, 50, 50, "Home", 25, 25, 15, true, 255, 2, 1);
   
   //Page 0 = Game, Page 1 = frontpage, Page 2 = Settingspage, Page 3 = soundpage
   int Page = 1;
-  PImage img;
 
   void setup() {
-    img = loadImage("Catscapebg.png");
 
     buttonList.add(new Button(width/2-200, 500, 400, 60, "Play", 200, 20, 50, fpage, 255, 0, 1));
     buttonList.add(new Button(width/2-200, 700, 400, 60, "Settings", 200, 20, 50, fpage, 255, 2, 1));
@@ -36,26 +36,32 @@ class Menu {
   }
 
   void display() {
-    clear();
-    img.resize(1920, 1080);
-    image(img, 0, 0);
-
+     button.display();
+      if (mousePressed && button.mouseRegister()) {
+      Page = 1;
+      MenuPage = true;
+    }
+     
+     println(mouseX,mouseY);
     //switch cases
     switch(Page) {
     case 1:
       spage= false;
       soundpage = false;
+      MenuPage = true;
       frontpage();
       break;
     case 2:
       spage = true;
       fpage= false;
       soundpage = false;
+      MenuPage = false;
       settingspage();
       break;
     case 3:
       spage = false;
       fpage= false;
+      MenuPage = false;
       soundpage = true;
       soundpage();
       break;

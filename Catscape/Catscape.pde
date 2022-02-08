@@ -3,8 +3,11 @@ Menu menu;
 
 Boolean showMenu = true;
 
+PImage bg;
+
 void setup() {
   fullScreen();
+  bg = loadImage("Catscapebg.png");
   menu = new Menu();
   game = new Game();
   menu.setup();
@@ -12,14 +15,17 @@ void setup() {
 
 void draw() {
   clear();
+    bg.resize(1920, 1080);
+    image(bg, 0, 0);
   if (menu.Page == 0) {
     showMenu = false;
   }
-  else if (showMenu) {
+  if (showMenu) {
     menu.display();
   }
-  else if (!showMenu) {
-    game.run();
+  if (!showMenu) {
+  game.levels();
+  game.run();
   }
 }
 

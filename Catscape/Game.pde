@@ -1,18 +1,21 @@
 class Game {
   int levelNr;
+  int currentLevel = 1;
   Cat cat = new Cat();
 
   void setup() {
   }
 
   void run() {
-    clear();
     cat.run();
   }
 
   void levels() {
+    
     switch(levelNr) {
     case 1:
+      
+      
       break;
     case 2:
       break;
