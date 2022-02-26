@@ -1,3 +1,4 @@
+
 Game game;
 Menu menu;
 
@@ -5,27 +6,38 @@ Boolean showMenu = true;
 
 PImage bg;
 
+int startTime;
+
 void setup() {
   fullScreen();
   bg = loadImage("Catscapebg.png");
   menu = new Menu();
   game = new Game();
   menu.setup();
+    imageMode(CENTER);
 }
 
 void draw() {
   clear();
-    bg.resize(1920, 1080);
-    image(bg, 0, 0);
+  bg.resize(1920, 1080);
+  image(bg, width/2, height/2);
+
   if (menu.Page == 0) {
     showMenu = false;
   }
   if (showMenu) {
     menu.display();
   }
-  if (!showMenu) {
-  game.levels();
-  game.run();
+  else if (!showMenu) {
+    game.levels();
+    game.collisiondetect();
+    game.run();
+    game.deleteObstacle();
+  }
+  else if(game.collisionDetect){
+     menu.Page = 1;
+     showMenu= true;
+    //clear();
   }
 }
 
