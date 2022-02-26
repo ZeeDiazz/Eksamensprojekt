@@ -5,13 +5,13 @@ class Cat {
   PVector  acceleration = new PVector(0, 0);
   PVector velocity = new PVector(0, 0);
 
-  int cat;
+  //int cat;
 
 
-  void setup() {
-    cat = game.levelNr;
+  /*void setup() {
+    cat = levelNr;
     
-  }
+  }*/
 
   void run() {
     update();
@@ -34,9 +34,9 @@ class Cat {
       if (key == 'd' || key == 'D') {
         location.x += 5;
       }
-      if (key == 'w' || key == 'W') {
+      /*if (key == 'w' || key == 'W') {
         location.y -= 5;
-      }
+      }*/
     }
   }
 

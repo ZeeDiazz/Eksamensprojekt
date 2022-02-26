@@ -13,7 +13,7 @@ class Menu {
   //Page 0 = Game, Page 1 = frontpage, Page 2 = Settingspage, Page 3 = soundpage
   int Page = 1;
   
-   Levels levels = new Levels();
+   //Levels levels = new Levels();
 
   void setup() {
     buttonList.add(new Button(width/2-200, 500, 400, 60, "Play", 200, 20, 50, fpage, 255, 4, 1)); 
@@ -24,7 +24,7 @@ class Menu {
     buttonList.add(new Button(width/2-200, 500, 400, 60, "Disable Sound", 200, 20, 50, soundpage, 255, 3, 3));
     buttonList.add(new Button(width/2-200, 700, 400, 60, "Disable Music", 200, 20, 50, soundpage, 255, 3, 3));
     
-    levels.setup();
+    //levels.setup();
   }
 
   void update() {
@@ -120,7 +120,7 @@ class Menu {
   }
 
   void mousePressed() {
-    levels.mousePressed();
+    //levels.mousePressed();
     for (Button b : buttonList) {
       if (b.mouseRegister() && b.pageNum == Page) {
         b.Pressed = true;
@@ -130,7 +130,7 @@ class Menu {
   }
 
   void mouseReleased() {
-    levels.mouseReleased();
+    //levels.mouseReleased();
     for (Button b : buttonList) {
       b.Pressed = false;
       b.Released = true;
