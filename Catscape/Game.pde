@@ -37,8 +37,8 @@ class Game {
     score();
     home.display();
     if (mousePressed && home.mouseRegister()) {
+      showMenu= true;
       menu.Page = 1;
-      menu.MenuPage = true;
     }
     currentTime = millis()- startTime; 
     update();
@@ -104,7 +104,17 @@ class Game {
       textSize(55);
       frame = frameCount%(15);
       text("LEVEL 5", width/2, height/2);
-      leveltime = 100000; // 80 sec
+      leveltime = 100000; // 100 sec
+      break;
+    case 6:
+      fill(150);
+      textSize(55);
+      text("The End", width/2, height/2);
+      leveltime = 110000; //110 sec
+      break;
+    case 7:
+      showMenu= true;
+      menu.Page = 1;
       break;
     }
   }
@@ -163,7 +173,7 @@ class Game {
   void score() {
     textSize(32);
     fill(255);
-    text("Highscore: " + highscore/1000, 400, 100);
-    text("Current score: " + currentTime/1000, 400, 200);
+    text("Highscore: " + highscore/1000, 200, 50);
+    text("Current score: " + currentTime/1000, 200, 150);
   }
 }

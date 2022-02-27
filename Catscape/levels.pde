@@ -48,6 +48,7 @@ class Levels {
         if (b.mouseRegister()) {
           startTime = millis();
           levelNr = i;
+          game.listeObstacle.clear();
           b.Pressed = true;
           b.Released = false;
         }
