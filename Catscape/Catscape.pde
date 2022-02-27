@@ -1,4 +1,4 @@
-import processing.sound.*;
+import processing.sound.*; //<>//
 
 SoundFile Dead;
 SoundFile Click;
@@ -13,7 +13,7 @@ Boolean dead = false;
 
 PImage bg;
 int x = 0;
-  int y = 0;
+int y = 0;
 
 int startTime;
 int levelNr;
@@ -26,23 +26,22 @@ void setup() {
   menu = new Menu();
   game = new Game();
   levels = new Levels();
-  
+
   menu.setup();
   game.setup();
   levels.setup();
- 
-  
+
+
   Click = new SoundFile(this, "Click.mp3");
   Score = new SoundFile(this, "Score.mp3");
-  Dead = new SoundFile(this, "Dead.mp3"); 
+  Dead = new SoundFile(this, "Dead.mp3");
 }
 
 void draw() {
   clear();
-
   MoveBg();
-    rect(570,1920,10,580);
-  rect(1370,1920,1370,2000);
+
+
   imageMode(CENTER);
   if (menu.Page == 0) {
     showMenu = false;
@@ -59,10 +58,10 @@ void draw() {
   }
 }
 
-void MoveBg() { //<>//
+void MoveBg() {
   imageMode(CORNER);
   image(bg, x, y);
-  image(bg, x , y - bg.height);
+  image(bg, x, y - bg.height);
   y += + 2;
 
   if (y > +bg.height) {

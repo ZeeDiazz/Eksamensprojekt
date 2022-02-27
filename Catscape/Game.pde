@@ -67,19 +67,18 @@ class Game {
     switch(levelNr) {
       //Level 1
     case 1:
-    
       fill(150);
       textSize(55);
       text("LEVEL 1", width/2, height/2);
       //framcount tæller hvordan frames der er gået siden programet er startet
-      frame = frameCount%(60); // spawn rate for the cloud
+      frame = frameCount%(50); // spawn rate for the cloud
       leveltime = 25000; // 25 sec
       break;
       //Level 2
     case 2:
       fill(150);
       textSize(55);
-      frame = frameCount%(10*5); //
+      frame = frameCount%(40); //
       text("LEVEL 2", width/2, height/2);
       leveltime = 35000; // 35 sec
       break;
@@ -87,7 +86,7 @@ class Game {
     case 3:
       fill(150);
       textSize(55);
-      frame = frameCount%(8*5);
+      frame = frameCount%(30);
       text("LEVEL 3", width/2, height/2);
       leveltime = 50000; // 50 sec
       break;
@@ -95,7 +94,7 @@ class Game {
     case 4:
       fill(150);
       textSize(55);
-      frame = frameCount%(6*5);
+      frame = frameCount%(20);
       text("LEVEL 4", width/2, height/2);
       leveltime = 65000; // 65 sec
       break;
@@ -103,34 +102,9 @@ class Game {
     case 5:
       fill(150);
       textSize(55);
-      frame = frameCount%(5*5);
+      frame = frameCount%(15);
       text("LEVEL 5", width/2, height/2);
       leveltime = 100000; // 80 sec
-      break;
-      //Level 6
-    case 6:
-      text("LEVEL 6", width/2, height/2);
-      leveltime = 95000; // 95 sec
-      break;
-      //Level 7
-    case 7:
-      text("LEVEL 7", width/2, height/20);
-      leveltime = 110000; // 110 sec
-      break;
-      //Level 8
-    case 8:
-      text("LEVEL 8", width/2, height/2);
-      leveltime = 125000; // 125 sec
-      break;
-      //Level 9
-    case 9:
-      text("LEVEL 9", width/2, height/2);
-      leveltime = 140000; //// 140 sec
-      break;
-      //Level 10
-    case 10:
-      text("LEVEL 10", width/2, height/2);
-      leveltime = 155000; //// 155 sec
       break;
     }
   }

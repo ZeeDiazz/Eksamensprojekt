@@ -13,12 +13,6 @@ class Levels {
     buttonList.add(new Button(940, 300, 50, 50, "3", 20, 20, 50, true, 255, 0, 4));
     buttonList.add(new Button(1040, 300, 50, 50, "4", 20, 20, 50, true, 255, 0, 4));
     buttonList.add(new Button(1140, 300, 50, 50, "5", 20, 20, 50, true, 255, 0, 4));
-
-    buttonList.add(new Button(740, 400, 50, 50, "6", 20, 20, 50, true, 255, 0, 4));
-    buttonList.add(new Button(840, 400, 50, 50, "7", 20, 20, 50, true, 255, 0, 4));
-    buttonList.add(new Button(940, 400, 50, 50, "8", 20, 20, 50, true, 255, 0, 4));
-    buttonList.add(new Button(1040, 400, 50, 50, "9", 20, 20, 50, true, 255, 0, 4));
-    buttonList.add(new Button(1140, 400, 50, 50, "10", 20, 20, 50, true, 255, 0, 4));
   }
 
   void update() {
@@ -46,7 +40,7 @@ class Levels {
     fill(255);
     text("Levels", width/2, 100);
   }
-  
+
   void checklevel() {
     if (mousePressed) {
       int i = 1;
