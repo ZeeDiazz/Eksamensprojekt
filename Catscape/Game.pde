@@ -10,22 +10,15 @@ class Game {
   int currentTime;
   int frame;
 
-  int selectedlevel;
-  
   Button home;
-
-  //Score
-  String[] highScore;
-  int score = 0;
-  int highScoreInt;
 
   Cat cat = new Cat();
 
   void setup() {
-    home = new Button(20, 1020, 50, 50, "Home", 25, 25, 15, true, 255, 2, 1);
-    startTime = millis();
+    home = new Button(20, 1020, 50, 50, "Home", 25, 25, 15, true, 255, 4, 4);
+    //startTime = millis();
   }
-  
+
   void update() {
     boolean changeCursor = false;
     for (Button b : buttonList) {
@@ -41,13 +34,14 @@ class Game {
   }
 
   void run() {
+    score();
     home.display();
     if (mousePressed && home.mouseRegister()) {
       menu.Page = 1;
       menu.MenuPage = true;
     }
     currentTime = millis()- startTime; 
-     update();
+    update();
     levels();
     levels.checklevel();
     LevelChange();
@@ -73,6 +67,7 @@ class Game {
     switch(levelNr) {
       //Level 1
     case 1:
+    
       fill(150);
       textSize(55);
       text("LEVEL 1", width/2, height/2);
@@ -82,7 +77,7 @@ class Game {
       break;
       //Level 2
     case 2:
-    fill(150);
+      fill(150);
       textSize(55);
       frame = frameCount%(10*5); //
       text("LEVEL 2", width/2, height/2);
@@ -90,18 +85,15 @@ class Game {
       break;
       //Level 3
     case 3:
-    fill(150);
+      fill(150);
       textSize(55);
       frame = frameCount%(8*5);
       text("LEVEL 3", width/2, height/2);
       leveltime = 50000; // 50 sec
-      
-      text(currentTime, 200, 100);
-      text(leveltime, 200, 300);
       break;
       //Level 4
     case 4:
-    fill(150);
+      fill(150);
       textSize(55);
       frame = frameCount%(6*5);
       text("LEVEL 4", width/2, height/2);
@@ -109,11 +101,11 @@ class Game {
       break;
       //Level 5
     case 5:
-    fill(150);
+      fill(150);
       textSize(55);
       frame = frameCount%(5*5);
       text("LEVEL 5", width/2, height/2);
-      leveltime = 80000; // 80 sec
+      leveltime = 100000; // 80 sec
       break;
       //Level 6
     case 6:
@@ -160,12 +152,14 @@ class Game {
       if (dist(cat.location.x, cat.location.y, listeObstacle.get(i).x, listeObstacle.get(i).y)< listeObstacle.get(i).r) {
 
         dead = true;
-        
+
         collisionDetect = true;
         listeObstacle.clear();
 
+        takeScore(currentTime);
+
         startTime = millis();
-        
+
         cat.location.x = 925;
         cat.location.y = 1000;
 
@@ -173,6 +167,14 @@ class Game {
       } else {
         dead = false;
         collisionDetect = false;
+      }
+    }
+  }
+
+  void takeScore(int score) {
+    if (dead) {
+      if (score>highscore) {
+        highscore = score;
       }
     }
   }
@@ -185,18 +187,9 @@ class Game {
     }
   }
   void score() {
-    highScore = loadStrings("score.txt");
-    highScoreInt = int(highScore[0]);
-
     textSize(32);
     fill(255);
-    text("Highscore: " + highScore[0], 400, 100);
-    text("Current score: " + score, 400, 200); 
-
-    if (score > highScoreInt) {
-      highScore[0] = str(score);
-      saveStrings("score.txt", highScore);
-      highScore = loadStrings("score.txt");
-    }
+    text("Highscore: " + highscore/1000, 400, 100);
+    text("Current score: " + currentTime/1000, 400, 200);
   }
 }

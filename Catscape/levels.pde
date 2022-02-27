@@ -52,6 +52,7 @@ class Levels {
       int i = 1;
       for (Button b : buttonList) {
         if (b.mouseRegister()) {
+          startTime = millis();
           levelNr = i;
           b.Pressed = true;
           b.Released = false;

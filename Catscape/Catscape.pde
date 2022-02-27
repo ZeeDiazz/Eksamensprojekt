@@ -18,16 +18,19 @@ int x = 0;
 int startTime;
 int levelNr;
 
+int highscore;
+
 void setup() {
   fullScreen();
   bg = loadImage("Catscapebg.png");
   menu = new Menu();
   game = new Game();
   levels = new Levels();
+  
   menu.setup();
   game.setup();
   levels.setup();
-  imageMode(CENTER);
+ 
   
   Click = new SoundFile(this, "Click.mp3");
   Score = new SoundFile(this, "Score.mp3");
@@ -38,6 +41,8 @@ void draw() {
   clear();
 
   MoveBg();
+    rect(570,1920,10,580);
+  rect(1370,1920,1370,2000);
   imageMode(CENTER);
   if (menu.Page == 0) {
     showMenu = false;

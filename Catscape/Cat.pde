@@ -22,10 +22,10 @@ class Cat {
 
     if (keyPressed == true) {
       if (key == 'a'&& location.x > 580 || key == 'A' && location.x > 580) {
-        location.x -= 5;
+        location.x -= 5.2;
       }
       if (key == 'd' && location.x < 1370|| key == 'D' && location.x < 1370) {
-        location.x += 5;
+        location.x += 5.2;
       }
     }
   }
