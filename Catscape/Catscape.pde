@@ -9,10 +9,11 @@ Menu menu;
 Levels levels;
 
 Boolean showMenu = true;
+Boolean dead = false;
 
 PImage bg;
-int x = width/2;
-  int y = 2;
+int x = 0;
+  int y = 0;
 
 int startTime;
 int levelNr;
@@ -37,6 +38,7 @@ void draw() {
   clear();
 
   MoveBg();
+  imageMode(CENTER);
   if (menu.Page == 0) {
     showMenu = false;
   }
@@ -53,9 +55,10 @@ void draw() {
 }
 
 void MoveBg() { //<>//
+  imageMode(CORNER);
   image(bg, x, y);
-  image(bg, x , y + bg.height);
-  y += 2;
+  image(bg, x , y - bg.height);
+  y += + 2;
 
   if (y > +bg.height) {
     y = 0;

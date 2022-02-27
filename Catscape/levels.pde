@@ -66,7 +66,6 @@ class Levels {
       if (b.mouseRegister() && b.pageNum == menu.Page) {
         b.Pressed = true;
         b.Released = false;
-        Click.play();
       }
     }
   }
@@ -78,8 +77,8 @@ class Levels {
 
       if (b.mouseRegister()&& b.pageNum == menu.Page) { //dette søge for at man kan komme til det næste side.
         //println(b.text + " nextPage:" + b.nextPage );
-        Click.play();
         menu.Page = b.nextPage;
+        Click.play();
       }
     }
   }

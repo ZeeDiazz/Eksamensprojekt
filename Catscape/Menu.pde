@@ -10,7 +10,7 @@ class Menu {
 
   Button button = new Button(20, 1020, 50, 50, "Home", 25, 25, 15, true, 255, 2, 1);
 
-  //Page 0 = Game, Page 1 = frontpage, Page 2 = Settingspage, Page 3 = soundpage
+  //Page 0 = Game, Page 1 = frontpage, Page 2 = Settingspage, Page 3 = soundpage, Page 4 = levelpage
   int Page = 1;
 
   void setup() {
