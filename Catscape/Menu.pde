@@ -3,28 +3,24 @@ class Menu {
 
   boolean changeCursor = false;
 
-  boolean spage = true;
+  boolean settingsPage = true;
   boolean soundpage =true;
-  boolean fpage = true; 
+  boolean frontPage = true; 
   boolean MenuPage = true;
 
   Button button = new Button(20, 1020, 50, 50, "Home", 25, 25, 15, true, 255, 2, 1);
 
   //Page 0 = Game, Page 1 = frontpage, Page 2 = Settingspage, Page 3 = soundpage
   int Page = 1;
-  
-   //Levels levels = new Levels();
 
   void setup() {
-    buttonList.add(new Button(width/2-200, 500, 400, 60, "Play", 200, 20, 50, fpage, 255, 4, 1)); 
-    buttonList.add(new Button(width/2-200, 700, 400, 60, "Settings", 200, 20, 50, fpage, 255, 2, 1));
+    buttonList.add(new Button(width/2-200, 500, 400, 60, "Play", 200, 20, 50, frontPage, 255, 4, 1)); 
+    buttonList.add(new Button(width/2-200, 700, 400, 60, "Settings", 200, 20, 50, frontPage, 255, 2, 1));
 
-    buttonList.add(new Button(width/2-200, 500, 400, 60, "Sound", 200, 20, 50, spage, 255, 3, 2));
+    buttonList.add(new Button(width/2-200, 500, 400, 60, "Sound", 200, 20, 50, settingsPage, 255, 3, 2));
 
     buttonList.add(new Button(width/2-200, 500, 400, 60, "Disable Sound", 200, 20, 50, soundpage, 255, 3, 3));
     buttonList.add(new Button(width/2-200, 700, 400, 60, "Disable Music", 200, 20, 50, soundpage, 255, 3, 3));
-    
-    //levels.setup();
   }
 
   void update() {
@@ -50,22 +46,24 @@ class Menu {
 
     //switch cases that changes the page nr.
     switch(Page) {
-    case 1:
-      spage= false;
+      case 1:
+      settingsPage= false;
       soundpage = false;
       MenuPage = true;
       frontpage();
       break;
+
     case 2:
-      spage = true;
-      fpage= false;
+      settingsPage = true;
+      frontPage= false;
       soundpage = false;
       MenuPage = false;
-      settingspage();
+      settingsPage();
       break;
+
     case 3:
-      spage = false;
-      fpage= false;
+      settingsPage = false;
+      frontPage= false;
       MenuPage = false;
       soundpage = true;
       soundpage();
@@ -92,12 +90,12 @@ class Menu {
   }
 
 
-  void settingspage() {   
+  void settingsPage() {   
     textSize(120);
     textAlign(CENTER, CENTER);
     text("Settings", width/2, 250);
     textAlign(CORNER, CORNER);
-    if (!fpage) {
+    if (!frontPage) {
       for (Button b : buttonList) {
         if (b.pageNum == 2) {
           b.display();
@@ -120,9 +118,9 @@ class Menu {
   }
 
   void mousePressed() {
-    //levels.mousePressed();
     for (Button b : buttonList) {
       if (b.mouseRegister() && b.pageNum == Page) {
+        Click.play();
         b.Pressed = true;
         b.Released = false;
       }
@@ -130,12 +128,11 @@ class Menu {
   }
 
   void mouseReleased() {
-    //levels.mouseReleased();
     for (Button b : buttonList) {
       b.Pressed = false;
       b.Released = true;
       if (b.mouseRegister() && b.pageNum == Page) { //dette søge for at man kan komme til det næste side.
-        //println(b.text + " nextPage:" + b.nextPage );
+        Click.play();
         Page = b.nextPage;
       }
     }

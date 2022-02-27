@@ -5,13 +5,6 @@ class Cat {
   PVector  acceleration = new PVector(0, 0);
   PVector velocity = new PVector(0, 0);
 
-  //int cat;
-
-
-  /*void setup() {
-    cat = levelNr;
-    
-  }*/
 
   void run() {
     update();
@@ -21,27 +14,20 @@ class Cat {
   void update() {
     acceleration.x = 0;
     acceleration.y = 0;
-    
-    
+
+
     velocity.add(acceleration);
     location.add(velocity);
-    
-    //println(mouseX, mouseY);
+
     if (keyPressed == true) {
-      if (key == 'a' || key == 'A') {
+      if (key == 'a'&& location.x > 580 || key == 'A' && location.x > 580) {
         location.x -= 5;
       }
-      if (key == 'd' || key == 'D') {
+      if (key == 'd' && location.x < 1470|| key == 'D' && location.x < 1470) {
         location.x += 5;
       }
-      /*if (key == 'w' || key == 'W') {
-        location.y -= 5;
-      }*/
     }
   }
-
-
-
 
   void display() {
     rectMode(CENTER);

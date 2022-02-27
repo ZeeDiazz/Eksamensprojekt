@@ -3,17 +3,6 @@ class Levels {
 
   Button home;
 
-  /*Button level1;
-   Button level2;
-   Button level3;
-   Button level4;
-   Button level5;
-   Button level6;
-   Button level7;
-   Button level8;
-   Button level9;
-   Button level10;*/
-
   void setup() {
 
     //float x, float y, float w, float h, String text, float textX, float textY, float textSize, boolean boxdisplay, float c, int nextPage, int pageNum
@@ -46,19 +35,8 @@ class Levels {
     }
   }
   void display() {
-    /*level1.display();
-     level2.display();
-     level3.display();
-     level4.display();
-     level5.display();
-     level6.display();
-     level7.display();
-     level8.display();
-     level9.display();
-     level10.display();*/
-
     for (Button b : buttonList) {
-      if (b.pageNum == 4) { //hvis pageNum er en så skal der vises de Buttons der skal være i den side
+      if (b.pageNum == 4) { //hvis pageNum er fire så skal der vises de Buttons der skal være i den side
         b.display();
       }
     }
@@ -68,15 +46,15 @@ class Levels {
     fill(255);
     text("Levels", width/2, 100);
   }
+  
   void checklevel() {
-    if (mousePressed == true) {
+    if (mousePressed) {
       int i = 1;
       for (Button b : buttonList) {
-        if (b.mouseRegister() == true) {
+        if (b.mouseRegister()) {
           levelNr = i;
           b.Pressed = true;
           b.Released = false;
-          println(i, b);
         }
         i++;
       }
@@ -88,6 +66,7 @@ class Levels {
       if (b.mouseRegister() && b.pageNum == menu.Page) {
         b.Pressed = true;
         b.Released = false;
+        Click.play();
       }
     }
   }
@@ -98,7 +77,8 @@ class Levels {
       b.Released = true;
 
       if (b.mouseRegister()&& b.pageNum == menu.Page) { //dette søge for at man kan komme til det næste side.
-        println(b.text + " nextPage:" + b.nextPage );
+        //println(b.text + " nextPage:" + b.nextPage );
+        Click.play();
         menu.Page = b.nextPage;
       }
     }

@@ -1,6 +1,8 @@
 import processing.sound.*;
 
-SoundFile dead;
+SoundFile Dead;
+SoundFile Click;
+SoundFile Score;
 
 Game game;
 Menu menu;
@@ -10,7 +12,7 @@ Boolean showMenu = true;
 
 PImage bg;
 int x = width/2;
-  int y = height/2;
+  int y = 2;
 
 int startTime;
 int levelNr;
@@ -25,12 +27,14 @@ void setup() {
   game.setup();
   levels.setup();
   imageMode(CENTER);
+  
+  Click = new SoundFile(this, "Click.mp3");
+  Score = new SoundFile(this, "Score.mp3");
+  Dead = new SoundFile(this, "Dead.mp3"); 
 }
 
 void draw() {
   clear();
-  //bg.resize(1920, 1080);
-  //image(bg, width/2, height/2);
 
   MoveBg();
   if (menu.Page == 0) {
@@ -45,18 +49,15 @@ void draw() {
   } else if (game.collisionDetect) {
     menu.Page = 1;
     showMenu= true;
-    //clear();
   }
 }
 
-void MoveBg() {
- //<>//
-  //bg.resize(1940, 1080);
+void MoveBg() { //<>//
   image(bg, x, y);
   image(bg, x , y + bg.height);
-  y += 5;
+  y += 2;
 
-  if (y < +bg.height) {
+  if (y > +bg.height) {
     y = 0;
   }
 }

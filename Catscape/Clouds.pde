@@ -1,17 +1,18 @@
-class Clouds extends Obstacle {
-  PImage cloud;
+class Madfox extends Obstacle {
+  PImage madfox;
 
 
-  Clouds(float _x, float _y, float _obwidth, float _obheight, float _yFart) {
+  Madfox(float _x, float _y, float _obwidth, float _obheight, float _yFart) {
     super (_x, _y, _obwidth, _obheight, _yFart);
 
-    cloud = loadImage("cloud.png");
+    madfox = loadImage("Madfox.png");
   }
 
 
   //Metode
   void display() {
-    cloud.resize(100, 55);
-      image(cloud, x, y, obwidth, obheight);
+    r = 68;
+    madfox.resize(100, 55);
+      image(madfox, x, y, obwidth, obheight);
   }
 }
